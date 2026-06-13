@@ -1,0 +1,16 @@
+baseURL = "https://example.org/"
+languageCode = "en-us"
+title = "My Zero-Cost JAMstack Site"
+theme = ""
+
+[build]
+  writeStats = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]

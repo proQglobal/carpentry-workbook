@@ -1,0 +1,38 @@
+name: Generate Static Site Release
+
+on:
+  workflow_dispatch: # Manual trigger only, as requested
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for Hugo
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build Static Site
+        run: hugo --minify
+
+      - name: Package Production Build
+        run: tar -czf site-build.tar.gz -C ./public .
+
+      - name: Generate Release Tag
+        id: vars
+        run: echo "tag=$(date +'%Y.%m.%d-%H%M%S')" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: release-${{ steps.vars.outputs.tag }}
+          name: Production Build ${{ steps.vars.outputs.tag }}
+          files: site-build.tar.gz

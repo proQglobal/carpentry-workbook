@@ -1,0 +1,9 @@
+services:
+  edge-webserver:
+    image: nginx:alpine
+    container_name: offline_nginx_edge
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./www-content:/usr/share/nginx/html:ro
