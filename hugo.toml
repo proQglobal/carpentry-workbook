@@ -1,7 +1,7 @@
 baseURL = "https://example.org/"
 languageCode = "en-us"
 title = "My Zero-Cost JAMstack Site"
-theme = ""
+
 
 [build]
   writeStats = true
