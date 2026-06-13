@@ -1,0 +1,33 @@
+backend:
+  name: github
+  repo: your-username/your-repo-name # UPDATE THIS in SETUP_GUIDE
+  branch: main
+  base_url: https://your-cloudflare-worker-url.workers.dev # UPDATE THIS in SETUP_GUIDE
+  auth_endpoint: /auth
+  
+# Enable Editorial Workflow for PR-based editing
+publish_mode: editorial_workflow
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: true}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Homepage"
+        name: "home"
+        file: "content/_index.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
