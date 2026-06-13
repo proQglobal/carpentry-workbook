@@ -14,3 +14,7 @@ theme = ""
 [outputs]
   home = ["HTML", "RSS"]
   page = ["HTML"]
+
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
