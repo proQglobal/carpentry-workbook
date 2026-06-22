@@ -1,0 +1,19 @@
+name: hugo-workbook-cms
+
+services:
+  hugo:
+    image: hugomods/hugo:latest # Use hugomods/hugo:ext if your theme requires Hugo Extended (e.g., for Sass/SCSS parsing)
+    command: server --bind 0.0.0.0 --buildDrafts --watch
+    ports:
+      - "1313:1313"
+    volumes:
+      - ../:/src
+
+  decap-cms-proxy:
+    image: node:22-alpine
+    command: npx -y decap-server
+    working_dir: /app
+    ports:
+      - "8081:8081"
+    volumes:
+      - ../:/app

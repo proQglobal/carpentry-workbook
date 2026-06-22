@@ -1,0 +1,31 @@
+baseURL: "https://proqglobal.github.io/carpentry-workbook/"
+locale: "en-us"
+title: "proQ Carpentry workbook"
+
+params:
+  subtitle: "Your interactive media companion to our Carpentry workbook"
+  author: "proQ Global"
+  contact:
+    email: "hello@proq.global"
+
+build:
+  writeStats: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+  page:
+    - HTML
+
+caches:
+  images:
+    dir: ":cacheDir/images"
+
+permalinks:
+  pages: "/:slug/"

@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Site.Title }}</title>
+    {{ $styles := resources.Get "css/main.css" | minify }}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}">
 </head>
 <body>
-    <header>
-        <h1>{{ .Site.Title }}</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/posts/">Posts</a>
-            <a href="/cms/">Admin</a>
-        </nav>
-    </header>
-    <main>
-        {{ .Content }}
-    </main>
-    <footer>
-        <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p>
-    </footer>
+    <div class="container">
+        <header>
+            <h1>{{ .Site.Title }}</h1>
+            <nav>
+                <a href="./">Home</a>
+                <a href="posts/">Posts</a>
+                <a href="cms/">Admin</a>
+            </nav>
+        </header>
+        <main>
+            {{ .Content }}
+        </main>
+        <footer>
+            <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p>
+        </footer>
+    </div>
 </body>
 </html>

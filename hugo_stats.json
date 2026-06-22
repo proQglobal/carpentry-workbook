@@ -1,0 +1,52 @@
+{
+  "htmlElements": {
+    "tags": [
+      "a",
+      "body",
+      "button",
+      "div",
+      "em",
+      "footer",
+      "h1",
+      "h2",
+      "h3",
+      "head",
+      "header",
+      "html",
+      "img",
+      "li",
+      "link",
+      "main",
+      "meta",
+      "nav",
+      "ol",
+      "p",
+      "script",
+      "strong",
+      "title",
+      "ul"
+    ],
+    "classes": [
+      "container",
+      "disabled",
+      "gallery-block",
+      "gallery-item",
+      "media-caption",
+      "nav-bar",
+      "nav-btn",
+      "nav-dashboard",
+      "quiz-block",
+      "quiz-btn",
+      "quiz-feedback",
+      "quiz-question",
+      "quiz-section",
+      "quiz-submit",
+      "text-content"
+    ],
+    "ids": [
+      "back-to-dashboard",
+      "feedback-2-0",
+      "quiz-block-2-0"
+    ]
+  }
+}
